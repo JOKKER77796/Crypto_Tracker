@@ -18,9 +18,11 @@ class _MarketState extends State<Market> {
     return Consumer<HomeModel>(
       builder: (context, provider, child) {
         if (provider.isloading == true) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return ListView.builder(
+              itemCount: 13,
+              itemBuilder: ((context, index) {
+                return ShimmerMarket();
+              }));
         } else {
           return (provider.HomeCryptoList.isEmpty)
               ? Center(
