@@ -40,10 +40,9 @@ class _CCDetailsViewState extends State<CCDetailsView> {
                       children: [
                         CircleAvatar(
                           backgroundImage: NetworkImage(ccd.image.toString()),
-                          radius: 30,
                           backgroundColor: Colors.white,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Column(
@@ -64,7 +63,7 @@ class _CCDetailsViewState extends State<CCDetailsView> {
                       ],
                       mainAxisAlignment: MainAxisAlignment.center,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Center(
@@ -73,19 +72,19 @@ class _CCDetailsViewState extends State<CCDetailsView> {
                         width: MediaQuery.of(context).size.width * 0.8,
                         decoration: BoxDecoration(
                             color: (thmchng.themeMode == ThemeMode.light)
-                                ? Color.fromARGB(255, 233, 233, 233)
-                                : Color.fromARGB(255, 32, 32, 32),
+                                ? const Color.fromARGB(255, 233, 233, 233)
+                                : const Color.fromARGB(255, 32, 32, 32),
                             borderRadius: BorderRadius.circular(20)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 10),
-                              child: Column(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Price Change (24h)",
                                     style: TextStyle(
                                         fontSize: 18,
@@ -101,54 +100,60 @@ class _CCDetailsViewState extends State<CCDetailsView> {
                                       return Text(
                                         "$pricechangeper% ($pchng ₹)",
                                         style: const TextStyle(
-                                            color: Colors.red, fontSize: 21),
+                                            color: Colors.red, fontSize: 19),
                                       );
                                     } else {
                                       return Text(
                                         "+$pricechangeper% (+$pchng)",
                                         style: const TextStyle(
-                                            color: Colors.green, fontSize: 21),
+                                            color: Colors.green, fontSize: 19),
                                       );
                                     }
                                   })
                                 ],
                               ),
-                            ),
-                            reUrow(
-                                firsttitle: "Market Cap",
-                                firstValue: ccd.marketCap.toString(),
-                                secondtitle: "Market Cap Rank",
-                                secondValue: "# ${ccd.marketCapRank}"),
-                            reUrow(
-                              firsttitle: "High 24",
-                              firstValue: ccd.high24h.toString(),
-                              secondtitle: "Low 24",
-                              secondValue: ccd.low24h.toString(),
-                            ),
-                            reUrow(
-                              firsttitle: "All Time High",
-                              firstValue: ccd.ath.toString(),
-                              secondtitle: "All Time Low",
-                              secondValue: ccd.atl.toString(),
-                            ),
-                            reUrow(
-                              firsttitle: "Total Supply",
-                              firstValue: ccd.totalSupply.toString(),
-                              secondtitle: "Max Supply",
-                              secondValue: ccd.maxSupply.toString(),
-                            ),
-                            reUrow(
-                              firsttitle: "Total Volume",
-                              firstValue: ccd.totalVolume.toString(),
-                              secondtitle: "Fully Diluted Valuation",
-                              secondValue: ccd.fullyDilutedValuation.toString(),
-                            ),
-                            reUrow(
-                                firsttitle: "Circulating Supply",
-                                firstValue: ccd.circulatingSupply.toString(),
+                              reUrow(
+                                  firsttitle: "Market Cap",
+                                  firstValue: ccd.marketCap.toString(),
+                                  secondtitle: "Market Cap Rank",
+                                  secondValue: "# ${ccd.marketCapRank}"),
+                              reUrow(
+                                firsttitle: "High 24",
+                                firstValue: ccd.high24h.toString(),
+                                secondtitle: "Low 24",
+                                secondValue: ccd.low24h.toString(),
+                              ),
+                              reUrow(
+                                firsttitle: "All Time High",
+                                firstValue: ccd.ath.toString(),
+                                secondtitle: "All Time Low",
+                                secondValue: ccd.atl.toString(),
+                              ),
+                              reUrow(
+                                firsttitle: "Total Supply",
+                                firstValue: ccd.totalSupply.toString(),
+                                secondtitle: "Max Supply",
+                                secondValue: ccd.maxSupply.toString(),
+                              ),
+                              reUrow(
+                                firsttitle: "Total Volume",
+                                firstValue: ccd.totalVolume.toString(),
                                 secondtitle: "",
-                                secondValue: ""),
-                          ],
+                                secondValue: "",
+                              ),
+                              reUrow(
+                                  firsttitle: "Circulating Supply",
+                                  firstValue: ccd.circulatingSupply.toString(),
+                                  secondtitle: "",
+                                  secondValue: ""),
+                              reUrow(
+                                  firsttitle: "Fully Diluted Valuation",
+                                  firstValue:
+                                      ccd.fullyDilutedValuation.toString(),
+                                  secondtitle: "",
+                                  secondValue: ""),
+                            ],
+                          ),
                         ),
                       ),
                     ),

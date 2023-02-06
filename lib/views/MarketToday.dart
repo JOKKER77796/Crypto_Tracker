@@ -22,15 +22,19 @@ class _MarketState extends State<Market> {
             child: CircularProgressIndicator(),
           );
         } else {
-          return ListView.builder(
-            physics: const BouncingScrollPhysics(
-                parent: AlwaysScrollableScrollPhysics()),
-            itemCount: provider.HomeCryptoList.length,
-            itemBuilder: (context, index) {
-              CrptoList currntcrpto = provider.HomeCryptoList[index];
-              return com(currntcrpto: currntcrpto);
-            },
-          );
+          return (provider.HomeCryptoList.isEmpty)
+              ? Center(
+                  child: Text("ERROR"),
+                )
+              : ListView.builder(
+                  physics: const BouncingScrollPhysics(
+                      parent: AlwaysScrollableScrollPhysics()),
+                  itemCount: provider.HomeCryptoList.length,
+                  itemBuilder: (context, index) {
+                    CrptoList currntcrpto = provider.HomeCryptoList[index];
+                    return ReusableListTile(currntcrpto: currntcrpto);
+                  },
+                );
         }
       },
     );

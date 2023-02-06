@@ -21,7 +21,8 @@ class _FavoriteViewState extends State<FavoriteView> {
 
       return ListView.builder(
         itemCount: favlist.length,
-        itemBuilder: (context, index) => com(currntcrpto: favlist[index]),
+        itemBuilder: (context, index) =>
+            ReusableListTile(currntcrpto: favlist[index]),
       );
     }));
   }
