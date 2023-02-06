@@ -1,7 +1,7 @@
 import 'package:cryptoapp/ViewModels/HomeViewModel.dart';
+import 'package:cryptoapp/conatnts/theams.dart';
 import 'package:cryptoapp/routes/routes.dart';
 import 'package:cryptoapp/routes/routesname.dart';
-import 'package:cryptoapp/views/Homeview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,13 +16,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => HomeModel()),
-      ],
-      child: MaterialApp(
-        initialRoute: routsName.Splash,
-        onGenerateRoute: AppRoutes.getRoute,
-      ),
-    );
+        providers: [
+          ChangeNotifierProvider(create: (context) => HomeModel()),
+          ChangeNotifierProvider(create: (context) => theamchanger()),
+        ],
+        child: Consumer<theamchanger>(builder: (context, value, child) {
+          return MaterialApp(
+            themeMode: value.themeMode,
+            theme: LiightTheam,
+            darkTheme: DaarkTheam,
+            initialRoute: routsName.home,
+            onGenerateRoute: AppRoutes.getRoute,
+          );
+        }));
   }
 }

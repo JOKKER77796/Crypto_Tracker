@@ -1,4 +1,5 @@
 import 'package:cryptoapp/routes/routesname.dart';
+import 'package:cryptoapp/views/CCdetailview.dart';
 import 'package:cryptoapp/views/splashview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

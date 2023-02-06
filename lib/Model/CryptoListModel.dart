@@ -3,28 +3,28 @@ class CrptoList {
   String? symbol;
   String? name;
   String? image;
-  int? currentPrice;
-  int? marketCap;
-  int? marketCapRank;
-  int? fullyDilutedValuation;
-  int? totalVolume;
-  int? high24h;
-  int? low24h;
-  int? priceChange24h;
-  double? priceChangePercentage24h;
-  int? marketCapChange24h;
+  num? currentPrice;
+  num? marketCap;
+  num? marketCapRank;
+  num? fullyDilutedValuation;
+  num? totalVolume;
+  num? high24h;
+  num? low24h;
+  num? priceChange24h;
+  num? priceChangePercentage24h;
+  num? marketCapChange24h;
   double? marketCapChangePercentage24h;
-  int? circulatingSupply;
-  int? totalSupply;
-  int? maxSupply;
-  int? ath;
+  num? circulatingSupply;
+  num? totalSupply;
+  num? maxSupply;
+  num? ath;
   double? athChangePercentage;
   String? athDate;
-  double? atl;
-  double? atlChangePercentage;
+  num? atl;
+  num? atlChangePercentage;
   String? atlDate;
-  Null? roi;
   String? lastUpdated;
+  bool isfav = false;
 
   CrptoList(
       {this.id,
@@ -51,7 +51,6 @@ class CrptoList {
       this.atl,
       this.atlChangePercentage,
       this.atlDate,
-      this.roi,
       this.lastUpdated});
 
   CrptoList.fromJson(Map<String, dynamic> json) {
@@ -79,39 +78,7 @@ class CrptoList {
     atl = json['atl'];
     atlChangePercentage = json['atl_change_percentage'];
     atlDate = json['atl_date'];
-    roi = json['roi'];
-    lastUpdated = json['last_updated'];
-  }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['symbol'] = this.symbol;
-    data['name'] = this.name;
-    data['image'] = this.image;
-    data['current_price'] = this.currentPrice;
-    data['market_cap'] = this.marketCap;
-    data['market_cap_rank'] = this.marketCapRank;
-    data['fully_diluted_valuation'] = this.fullyDilutedValuation;
-    data['total_volume'] = this.totalVolume;
-    data['high_24h'] = this.high24h;
-    data['low_24h'] = this.low24h;
-    data['price_change_24h'] = this.priceChange24h;
-    data['price_change_percentage_24h'] = this.priceChangePercentage24h;
-    data['market_cap_change_24h'] = this.marketCapChange24h;
-    data['market_cap_change_percentage_24h'] =
-        this.marketCapChangePercentage24h;
-    data['circulating_supply'] = this.circulatingSupply;
-    data['total_supply'] = this.totalSupply;
-    data['max_supply'] = this.maxSupply;
-    data['ath'] = this.ath;
-    data['ath_change_percentage'] = this.athChangePercentage;
-    data['ath_date'] = this.athDate;
-    data['atl'] = this.atl;
-    data['atl_change_percentage'] = this.atlChangePercentage;
-    data['atl_date'] = this.atlDate;
-    data['roi'] = this.roi;
-    data['last_updated'] = this.lastUpdated;
-    return data;
+    lastUpdated = json['last_updated'];
   }
 }
